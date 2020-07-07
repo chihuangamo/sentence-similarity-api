@@ -1,0 +1,15 @@
+version: '3'
+
+services: 
+  web:
+    container_name: sm-flask
+    build: ./web
+    ports:
+      - "5000:5000"
+    links:
+      - mongodb
+  mongodb:
+    container_name: sm-mongodb
+    build: ./db
+    ports: 
+      - "7693:27017"
